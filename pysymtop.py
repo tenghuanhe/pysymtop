@@ -33,7 +33,7 @@ class Symtop(object):
         self.data_handler = self.EEGAMP.OpenDevice()
         self.connected = True
 
-    def acquire(self):
+    def geteeg(self):
         if not self.connected:
             self.connect()
         nCounts = c_ulong()
