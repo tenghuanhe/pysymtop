@@ -1,6 +1,7 @@
 import threading
 import time
 from pyfob import Fob
+import main
 
 
 class FobLogger(threading.Thread):
@@ -10,9 +11,8 @@ class FobLogger(threading.Thread):
         self.fob = Fob()
 
     def run(self):
-        global coordinate
         while True:
             time.sleep(0.01)
             self.lock.acquire()
-            coordinate = self.fob.getcord()
+            main.coordinate = self.fob.getcord()    # I hope this will work!, but now I dont have time deal with it;
             self.lock.release()
